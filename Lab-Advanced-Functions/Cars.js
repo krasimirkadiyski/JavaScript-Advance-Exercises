@@ -1,12 +1,15 @@
 function solve(input) {
+    //TODO
+    //IS NOT READY YET
     const result = [];
 
     const car = {
         create: (n, inherits, n2) => {
             if (inherits) {
-                let searchedObj = result.filter((obj) => obj.name == n2)[0];
-                let parentObj = result.filter((obj) => obj.name == n1)[0];
-                searchedObj = Object.create(parentObj);
+                let parentObj = result.filter((obj) => obj.name == n2)[0];
+                result.push({
+                    'name': n2,
+                } = Object.create(parentObj))
             } else {
                 result.push({
                     'name': n,
@@ -14,15 +17,18 @@ function solve(input) {
             }
         },
 
-        // (result[n] = inherits ? Object.create(result[n2]) : {}),
-        set: (n, k, v) => (result[n][k] = v),
+       
+        set: (n, k, v) => {
+            let searchedObj = result.filter((obj) => obj.name == n)[0];
+            searchedObj[k] = v;
+        },
+        
         print: n => {
-            const entry = [];
-
-            for (const key in result[n]) {
-                entry.push(`${key}:${result[n][key]}`);
+            let entrySet = [];
+            let searchedObj = result.filter((obj) => obj.name == n)[0];
+            for (const key in searchedObj) {
+                entrySet.push(`${key}:${[searchedObj][key]}`);
             }
-            console.log(entry.join(','));
         },
     }
 
