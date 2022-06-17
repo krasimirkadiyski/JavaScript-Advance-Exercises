@@ -10,4 +10,5 @@ it('works with negative numbers', () => {
 it('work with one element', () => {
     expect(sum([0])).to.equal(0);
 });
+
 });
