@@ -1,5 +1,5 @@
 function solve() {
-    //JUDGE 90/100
+    //JUDGE 90/100 P.S => FIXED 100/100
     let onScreenButton = document.querySelector("#container > button");
     onScreenButton.addEventListener('click', onScreen);
     let moviesUl = document.querySelector("#movies > ul");
@@ -44,14 +44,14 @@ function solve() {
         let clickedLi = (event.target).parentElement.parentElement;
         let ticketPrice = clickedLi.children[2].children[0];
         let movieName = clickedLi.children[0];
-        let tiketsSold = clickedLi.children[2].children[1];
-        if (Number(tiketsSold.value) >= 0) {
+        let ticketsSold = clickedLi.children[2].children[1];
+        if (Number(ticketsSold.value) || ticketsSold.value === '0') {
             let li = document.createElement('li');
             let spanMovieName = document.createElement('span');
             spanMovieName.textContent = movieName.textContent;
             li.appendChild(spanMovieName);
             let strongPrice = document.createElement('strong'); 
-            strongPrice.textContent =  `Total amount: ${(Number(ticketPrice.textContent) * Number(tiketsSold.value)).toFixed(2)}`;
+            strongPrice.textContent =  `Total amount: ${(Number(ticketPrice.textContent) * Number(ticketsSold.value)).toFixed(2)}`;
             li.appendChild(strongPrice);
             let deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
@@ -60,7 +60,7 @@ function solve() {
             archiveUl.appendChild(li);
             clickedLi.parentElement.removeChild(clickedLi)
         }
-        tiketsSold.value = '';
+        ticketsSold.value = '';
 
 
     }
