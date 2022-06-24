@@ -4,11 +4,11 @@ function solve() {
    function onClick () {
       
       let arrOfRestaurantObjects = [];
-      //needed fields
+      
       let inputField = document.querySelector('#inputs textarea');
       let outputParaRestaurants = document.querySelector('#bestRestaurant p');
       let outputParaWorkers = document.querySelector('#workers p');
-      //reset fields
+      
       outputParaWorkers.textContent = '';
       outputParaRestaurants.textContent = '';
 
@@ -16,7 +16,7 @@ function solve() {
       for (const currentRestaurant of inputArr) {
          let currentObj = {};
          let [restaurantName, ...employeesData] = currentRestaurant.split(' - '); 
-         //check restraurant allready exist
+         
          for (const restaurant of arrOfRestaurantObjects) {
             let currentRestaurantName = (Object.keys(restaurant))[0];
             if(currentRestaurantName == restaurantName){
